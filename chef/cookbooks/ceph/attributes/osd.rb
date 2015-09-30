@@ -1,7 +1,7 @@
-case node["platform"]
+case node[:platform]
 when "ubuntu"
   default["ceph"]["osd"]["init_style"] = "upstart"
-when "suse"
+when "suse", "opensuse"
   if node["platform_version"].to_f >= 12
     default["ceph"]["osd"]["init_style"] = "systemd"
   else
